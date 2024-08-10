@@ -49,6 +49,8 @@ def decodeStream(infile: BufferedReader):
         index = (index + 1) % 16
 
     outdata = np.array(buf, dtype="u1")
+    if not os.path.exists('./streams-decoded'):
+        os.makedirs('streams-decoded')
     outdata.tofile(f"streams-decoded/{os.path.split(infile.name)[1]}")
 
 
